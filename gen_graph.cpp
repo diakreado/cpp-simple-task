@@ -3,7 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <sstream>
-
+#include<time.h>  //include that header file
 class Graph {
 private:
   std::vector<std::vector<int> * > * table;
@@ -67,7 +67,7 @@ std::string Graph::toString() const {
 }
 
 int Graph::count_connected_components() const {
-  int connected_components = 0;  
+  int connected_components = 0;
   for (auto i : *(this->table)) {
     connected_components += i->size();
   }
@@ -79,7 +79,7 @@ Graph* Graph::generate_random_graph() {
 
   srand((unsigned)time(NULL));
   int nodes = rand() % Graph::MAX_NODES + 2;
-  
+
   for (int node = 1; node <= nodes; node++) {
     g->add_node();
   }
